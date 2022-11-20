@@ -11,12 +11,18 @@ curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://
 curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://github.com/MrStickyPiston/typegreek-windows/blob/installer/TypeGrieks_NL.exe?raw=true" -o typegreek_NL.exe
 
 cd %AppData%\Microsoft\Windows\Start Menu\Programs\
-mklink /h "TypeGreek windows (EN).exe" "%UserProfile%\.typegreek\typegreek_EN.exe"
-mklink /h "TypeGreek windows (NL).exe" "%UserProfile%\.typegreek\typegreek_NL.exe"
+del "TypeGreek Windows (EN).lnk"
+del "TypeGreek Windows (NL).lnk"
+
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (EN).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_EN.exe'; $S.Save()"
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (NL).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_NL.exe'; $S.Save()"
 
 cd %UserProfile%\Desktop
-mklink /h "TypeGreek Windows (EN).exe" "%UserProfile%\.typegreek\typegreek_EN.exe"
-mklink /h "TypeGreek Windows (NL).exe" "%UserProfile%\.typegreek\typegreek_NL.exe"
+del "TypeGreek Windows (EN).lnk"
+del "TypeGreek Windows (NL).lnk"
+
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%UserProfile%\Desktop\TypeGreek Windows (EN).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_EN.exe'; $S.Save()"
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%UserProfile%\Desktop\TypeGreek Windows (NL).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_NL.exe'; $S.Save()"
 
 cd %appdata%\Microsoft\Windows\Start Menu\Programs\Startup
 del TypeGreek_windows_updater.bat
