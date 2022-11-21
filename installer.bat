@@ -18,14 +18,14 @@ cd %AppData%\Microsoft\Windows\Start Menu\Programs
 del "TypeGreek Windows (EN).lnk"
 del "TypeGreek Windows (NL).lnk"
 
-start %UserProfile%\.typegreek\create_shortcut.vbs "%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (EN).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
+start %UserProfile%\.typegreek\create_shortcut.vbs "%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (EN).lnk" "%UserProfile%\.typegreek\typegreek_EN.exe"
 start %UserProfile%\.typegreek\create_shortcut.vbs "%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (NL).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
 
 cd %UserProfile%\Desktop
 del "TypeGreek Windows (EN).lnk"
 del "TypeGreek Windows (NL).lnk"
 
-start %UserProfile%\.typegreek\create_shortcut.vbs "%UserProfile%\Desktop\TypeGreek Windows (EN).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
+start %UserProfile%\.typegreek\create_shortcut.vbs "%UserProfile%\Desktop\TypeGreek Windows (EN).lnk" "%UserProfile%\.typegreek\typegreek_EN.exe"
 start %UserProfile%\.typegreek\create_shortcut.vbs "%UserProfile%\Desktop\TypeGreek Windows (NL).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
 
 cd %appdata%\Microsoft\Windows\Start Menu\Programs\Startup
