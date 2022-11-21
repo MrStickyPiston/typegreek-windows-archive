@@ -22,19 +22,21 @@ curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://
 curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://raw.githubusercontent.com/MrStickyPiston/typegreek-windows/installer/Beta/Launch_Scripts/TypeGreek_Windows_32_bit.bat" -o "TypeGreek Windows Beta 32 bit.bat"
 curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://raw.githubusercontent.com/MrStickyPiston/typegreek-windows/installer/Beta/Launch_Scripts/TypeGreek_Windows_64_bit.bat" -o "TypeGreek Windows Beta 64 bit.bat"
 
+curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://raw.githubusercontent.com/MrStickyPiston/typegreek-windows/installer/create_shortcut.vbs" -o "create_shortcut.vbs"
+
 cd %AppData%\Microsoft\Windows\Start Menu\Programs\
 del "TypeGreek Windows Beta 32 Bit.lnk"
 del "TypeGreek Windows Beta 64 Bit.lnk"
 
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows Beta 32 Bit.lnk'); $S.TargetPath = '%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 32 bit.bat'; $S.Save()"
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows Beta 64 Bit.lnk'); $S.TargetPath = '%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 64 bit.bat'; $S.Save()"
+start %UserProfile%\.typegreek_beta\create_shortcut.vbs "%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows Beta 32 Bit.lnk" "%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 32 bit.bat"
+start %UserProfile%\.typegreek_beta\create_shortcut.vbs "%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows Beta 64 Bit.lnk" "%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 64 bit.bat"
 
 cd %UserProfile%\Desktop
 del "TypeGreek Windows Beta 32 Bit.lnk"
 del "TypeGreek Windows Beta 64 Bit.lnk"
 
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%UserProfile%\Desktop\TypeGreek Windows Beta 32 Bit.lnk'); $S.TargetPath = '%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 32 bit.bat'; $S.Save()"
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%UserProfile%\Desktop\TypeGreek Windows Beta 64 Bit.lnk'); $S.TargetPath = '%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 64 bit.bat'; $S.Save()"
+start %UserProfile%\.typegreek_beta\create_shortcut.vbs "%UserProfile%\Desktop\TypeGreek Windows Beta 32 Bit.lnk" "%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 32 bit.bat"
+start %UserProfile%\.typegreek_beta\create_shortcut.vbs "%UserProfile%\Desktop\TypeGreek Windows Beta 64 Bit.lnk" "%UserProfile%\.typegreek_beta\TypeGreek Windows Beta 64 bit.bat"
 
 cd %appdata%\Microsoft\Windows\Start Menu\Programs\Startup
 del TypeGreek_windows_beta_updater.bat
