@@ -6,23 +6,27 @@ if not exist "%UserProfile%\.typegreek" mkdir %UserProfile%\.typegreek
 cd %UserProfile%\.typegreek
 del -f typegreek_EN.exe
 del -f typegreek_NL.exe
+del -f create_shortcut.vbs
 
 curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://github.com/MrStickyPiston/typegreek-windows/blob/installer/TypeGreek_EN.exe?raw=true" -o typegreek_EN.exe
 curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://github.com/MrStickyPiston/typegreek-windows/blob/installer/TypeGrieks_NL.exe?raw=true" -o typegreek_NL.exe
 
-cd %AppData%\Microsoft\Windows\Start Menu\Programs\
+curl -A "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64)" -L "https://raw.githubusercontent.com/MrStickyPiston/typegreek-windows/experimental/create_shortcut.vbs" -o "create_shortcut.vbs"
+
+
+cd %AppData%\Microsoft\Windows\Start Menu\Programs
 del "TypeGreek Windows (EN).lnk"
 del "TypeGreek Windows (NL).lnk"
 
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (EN).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_EN.exe'; $S.Save()"
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (NL).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_NL.exe'; $S.Save()"
+start %UserProfile%\.typegreek\create_shortcut.vbs "%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (EN).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
+start %UserProfile%\.typegreek\create_shortcut.vbs "%AppData%\Microsoft\Windows\Start Menu\Programs\TypeGreek Windows (NL).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
 
 cd %UserProfile%\Desktop
 del "TypeGreek Windows (EN).lnk"
 del "TypeGreek Windows (NL).lnk"
 
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%UserProfile%\Desktop\TypeGreek Windows (EN).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_EN.exe'; $S.Save()"
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut('%UserProfile%\Desktop\TypeGreek Windows (NL).lnk'); $S.TargetPath = '%UserProfile%\.typegreek\typegreek_NL.exe'; $S.Save()"
+start %UserProfile%\.typegreek\create_shortcut.vbs "%UserProfile%\Desktop\TypeGreek Windows (EN).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
+start %UserProfile%\.typegreek\create_shortcut.vbs "%UserProfile%\Desktop\TypeGreek Windows (NL).lnk" "%UserProfile%\.typegreek\typegreek_NL.exe"
 
 cd %appdata%\Microsoft\Windows\Start Menu\Programs\Startup
 del TypeGreek_windows_updater.bat
