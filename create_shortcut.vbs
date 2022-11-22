@@ -5,7 +5,7 @@ Set oLink = oWS.CreateShortcut(sLinkFile)
  '  oLink.Arguments = ""
  '  oLink.Description = "MyProgram"   
  '  oLink.HotKey = "ALT+CTRL+F"
- '  oLink.IconLocation = "C:\Program Files\MyApp\MyProgram.EXE, 2"
+    oLink.IconLocation = "https://github.com/MrStickyPiston/typegreek-windows/blob/installer/icon.ico"
  '  oLink.WindowStyle = "1"   
  '  oLink.WorkingDirectory = "C:\Program Files\MyApp"
 oLink.Save
