@@ -1,4 +1,5 @@
-# ΤyπεΓρεεκ ινδοwς
+# ARCHIVED. PLEASE GO TO [the new repo](https://github.com/StickyPiston-development/typegreek-windows)
+## ΤyπεΓρεεκ ινδοwς  
 τhις προγραμ λετς yου τyπε γρεεκ.
 
 ### About 
